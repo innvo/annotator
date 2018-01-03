@@ -425,7 +425,7 @@ var Editor = exports.Editor = Widget.extend({
         } else if (field.type === 'input') {
             input = $('<input />');
         } else if (field.type === 'select') {
-            input = $('<select class="form-control"><option>Question</option><option>Entity</option><option>Other</option></select>');
+            input = $('<select class="form-control"><option>Question</option><option>Entity</option><option>Otherss</option></select>');
         }
 
         element.append(input);
