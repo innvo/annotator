@@ -230,14 +230,15 @@ var Editor = exports.Editor = Widget.extend({
         this.annotation = {};
 
         if (this.options.defaultFields) {
-            this.addField({
-                type: 'textarea',
+
+             this.addField({
+                type: 'select',
                 label: _t('Comments') + '\u2026',
                 load: function (field, annotation) {
-                    $(field).find('textarea').val(annotation.text || '');
+                    $(field).find('select').val(annotation.text || '');
                 },
                 submit: function (field, annotation) {
-                    annotation.text = $(field).find('textarea').val();
+                    annotation.text = $(field).find('select').val();
                 }
             });
         }
@@ -347,12 +348,12 @@ var Editor = exports.Editor = Widget.extend({
         this.hide();
     },
 
-    // Public: Adds an additional form field to the editor. Callbacks can be
+    // Public: Adds an addional form field to the editor. Callbacks can be
     // provided to update the view and anotations on load and submission.
     //
     // options - An options Object. Options are as follows:
     //           id     - A unique id for the form element will also be set as
-    //                    the "for" attribute of a label if there is one.
+    //                    the "for" attrubute of a label if there is one.
     //                    (default: "annotator-field-{number}")
     //           type   - Input type String. One of "input", "textarea",
     //                    "checkbox", "select" (default: "input")
@@ -424,7 +425,7 @@ var Editor = exports.Editor = Widget.extend({
         } else if (field.type === 'input') {
             input = $('<input />');
         } else if (field.type === 'select') {
-            input = $('<select />');
+            input = $('<select class="form-control"><option>Question</option><option>Entity</option><option>Other</option></select>');
         }
 
         element.append(input);
