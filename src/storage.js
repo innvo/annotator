@@ -634,9 +634,19 @@ StorageAdapter.prototype.query = function (query) {
  */
 StorageAdapter.prototype.load = function (query) {
     var self = this;
+    console.log("88888888888888888888888888888888888888888888888888888888888");
+    console.log("88888888888888888888888888888888888888888888888888888888888");
+    var ali=this.query(query).then(function (data) {
+            self.runHook('annotationsLoaded', [data.results]);
+        });
+    console.log(this);
+    console.log(ali);
+    console.log(this);
+    
     return this.query(query)
         .then(function (data) {
             self.runHook('annotationsLoaded', [data.results]);
+            console.log(data);
         });
 };
 
