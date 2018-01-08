@@ -24,6 +24,7 @@ function trim(s) {
 }
 
 
+
 // annotationFactory returns a function that can be used to construct an
 // annotation from a list of selected ranges.
 function annotationFactory(contextEl, ignoreSelector) {
