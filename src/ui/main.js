@@ -24,7 +24,6 @@ function trim(s) {
 }
 
 
-
 // annotationFactory returns a function that can be used to construct an
 // annotation from a list of selected ranges.
 function annotationFactory(contextEl, ignoreSelector) {
@@ -292,7 +291,9 @@ function main(options) {
             removeDynamicStyle();
         },
 
-        annotationsLoaded: function (anns) { s.highlighter.drawAll(anns); },
+        annotationsLoaded: function (anns) {
+            anns=options.anno;
+            s.highlighter.drawAll(anns); },
         annotationCreated: function (ann) { s.highlighter.draw(ann); },
         annotationDeleted: function (ann) { s.highlighter.undraw(ann); },
         annotationUpdated: function (ann) { s.highlighter.redraw(ann); },
